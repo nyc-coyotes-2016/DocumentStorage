@@ -1,0 +1,15 @@
+<h1>Welcome to Document Storage</h1>
+<div class="">
+  <ul>
+    <% @documents.each do |document|%>
+      <div class="">
+        <li><%= document.title%></li>
+        <p>
+            <%= truncate(document.content, length: 50)%>
+        </p>
+      </div>
+
+    <% end %>
+  </ul>
+</div>
+<%= link_to "Create a new Document", new_document_path%>
