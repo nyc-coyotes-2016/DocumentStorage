@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before: find_doc, only: [:show, :edit]
+  before_action :find_doc, only: [:show, :edit]
 
   def index
     @documents = Document.all
@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      redirect_to documents_path
+      redirect_to root_path
     else
       @errors = @document.errors.full_messages
     end
